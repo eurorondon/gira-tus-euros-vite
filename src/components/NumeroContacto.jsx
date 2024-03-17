@@ -1,7 +1,12 @@
 import React from "react";
 import colors from "../colors";
+import { whatsappButtonEvent } from "../../utils/facebookPixelEvents";
 
 function NumeroContacto() {
+  const handleClick = () => {
+    window.open("https://wa.me/message/2GZHD5NUAMOZC1", "_blank");
+    whatsappButtonEvent();
+  };
   return (
     <>
       <div
@@ -20,9 +25,7 @@ function NumeroContacto() {
         </div>
         <button
           className="text-xs py-1 px-2 border border-yellow-400 rounded-lg font-extralight"
-          onClick={() => {
-            window.open("https://wa.me/message/2GZHD5NUAMOZC1", "_blank");
-          }}
+          onClick={handleClick}
         >
           Escribenos aqui
         </button>

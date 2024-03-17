@@ -11,7 +11,6 @@ import Terminos from "./components/Terminos";
 import InstruccionesEnvio from "./components/InstruccionesEnvio";
 import NumeroContacto from "./components/NumeroContacto";
 import React from "react";
-import { landingpageEvent } from "../utils/facebookPixelEvents";
 
 const BgStyle = {
   backgroundImage: `url(../../public/fondo.png)`,
@@ -28,10 +27,6 @@ export default function Home() {
   const formatNumber = (number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   };
-
-  // React.useEffect(() => {
-  //   landingpageEvent();
-  // }, []);
 
   // Calcular el valor inicial de VES y formatearlo con separadores de miles
   const initialVesValue = formatNumber(tasa * euro);

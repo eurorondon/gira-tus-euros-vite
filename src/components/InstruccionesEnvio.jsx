@@ -1,7 +1,12 @@
 import React from "react";
 import colors from "../colors";
+import { whatsappButtonEvent } from "../../utils/facebookPixelEvents";
 
 function InstruccionesEnvio() {
+  const handleClick = () => {
+    window.open("https://wa.me/message/2GZHD5NUAMOZC1", "_blank");
+    whatsappButtonEvent();
+  };
   return (
     <div className="mx-4 my-5" id="instrucciones">
       <h4 className="font-bold text-sm">¿Como hacer tus envios?</h4>
@@ -67,9 +72,7 @@ function InstruccionesEnvio() {
         <button
           className="flex items-center gap-3 hover:bg-blue-700 text-white font-bold py-4 px-4 rounded mt-3"
           style={{ backgroundColor: colors.primary }}
-          onClick={() => {
-            window.open("https://wa.me/message/2GZHD5NUAMOZC1", "_blank");
-          }}
+          onClick={handleClick}
         >
           <p className="text-xs">CONTACTANOS AHORA </p>
         </button>

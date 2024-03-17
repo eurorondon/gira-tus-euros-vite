@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { landingpageEvent } from "../../utils/facebookPixelEvents";
+import { whatsappButtonEvent } from "../../utils/facebookPixelEvents";
 
 function Whatsapp() {
   const [showObject, setShowObject] = React.useState(false);
@@ -25,7 +25,7 @@ function Whatsapp() {
 
   const handleClick = () => {
     window.open("https://wa.me/message/2GZHD5NUAMOZC1", "_blank");
-    landingpageEvent();
+    whatsappButtonEvent();
   };
   if (showObject)
     return (

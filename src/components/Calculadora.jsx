@@ -1,8 +1,13 @@
 import React from "react";
 import Selector from "./Selector";
 import InputVenezuela from "./InputVenezuela";
+import { whatsappButtonEvent } from "../../utils/facebookPixelEvents";
 
 export default function Calculadora({ tasa, euro, setEuro, ves, setVes }) {
+  const handleClick = () => {
+    window.open("https://wa.me/message/2GZHD5NUAMOZC1", "_blank");
+    whatsappButtonEvent();
+  };
   return (
     <div className="px-4  py-1 bg-white mx-4  rounded-xl p-3  shadow-md">
       <div className="mt-5 mb-10">
@@ -11,9 +16,7 @@ export default function Calculadora({ tasa, euro, setEuro, ves, setVes }) {
           <button
             className="px-2  py-1 rounded-md font-bold"
             style={{ backgroundColor: "#DCEC20" }}
-            onClick={() => {
-              window.open("https://wa.me/message/2GZHD5NUAMOZC1", "_blank");
-            }}
+            onClick={handleClick}
           >
             CONTACTANOS AQUI
           </button>
