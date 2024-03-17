@@ -1,35 +1,55 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+"use client";
+import Navbar from "./components/Navbar";
+import fondo from "../public/fondo.png";
+import Hero from "./components/Hero";
+import Tasa from "./components/Tasa";
+import Calculadora from "./components/Calculadora";
+import OpcionesEnvio from "./components/OpcionesEnvio";
+import Whatsapp from "./components/Whatsapp";
+import MontoMinimo from "./components/MontoMinimo";
+import Terminos from "./components/Terminos";
+import InstruccionesEnvio from "./components/InstruccionesEnvio";
+import NumeroContacto from "./components/NumeroContacto";
+import React from "react";
 
-function App() {
-  const [count, setCount] = useState(0);
+const BgStyle = {
+  backgroundImage: `url(../../public/fondo.png)`,
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  height: "700px",
+  width: "100%",
+};
 
+export default function Home() {
+  const [tasa, setTasa] = React.useState(37);
+  const [euro, setEuro] = React.useState(20);
+  const formatNumber = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
+
+  // Calcular el valor inicial de VES y formatearlo con separadores de miles
+  const initialVesValue = formatNumber(tasa * euro);
+
+  // Inicializar el estado de VES con el valor formateado
+  const [ves, setVes] = React.useState(initialVesValue);
   return (
-    <>
-      <div className="bg-slate-600">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="">
+      <Hero />
+      <Tasa tasa={tasa} />
+      <Calculadora
+        tasa={tasa}
+        euro={euro}
+        setEuro={setEuro}
+        ves={ves}
+        setVes={setVes}
+      />
+      <OpcionesEnvio />
+      <MontoMinimo />
+      <Terminos />
+      <InstruccionesEnvio />
+      <NumeroContacto />
+      <Whatsapp />
+    </div>
   );
 }
-
-export default App;
